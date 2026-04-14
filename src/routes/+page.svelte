@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Latex List</title
+	<title>Latex List</title>
 </svelte:head>
 
 <script>
