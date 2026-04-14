@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>Latex List</title
+</svelte:head>
+
 <script>
 	import MathSVG from 'svelte-tex/package/MathSVG.svelte';
 	let equations = $state([]);
