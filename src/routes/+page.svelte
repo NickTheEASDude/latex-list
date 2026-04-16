@@ -46,4 +46,7 @@
 		font-family: Helvetica, Arial, sans-serif;
 		fill: red;
 	}
+	:global(svg g[data-mml-node="merror"] rect) {
+		fill: white;
+	}
 </style>
