@@ -8,15 +8,10 @@
 	let equationText = $state(String.raw``);
 	const options = {
 		loader: {
-    		load: ['[tex]/require'] // Load the require extension
+    		load: ['[tex]/color']
 		},
 		tex: {
-			packages: { '[+]': ['require'] }, // Add to packages
-			require: {
-				allow: {
-					allPackages: true // Optional: Allows all packages to be required
-				}
-			}
+			packages: { '[+]': ['color'] }
 		}
 	};
 	function addEquation(event) {
