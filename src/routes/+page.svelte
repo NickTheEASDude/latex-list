@@ -6,6 +6,19 @@
 	import MathSVG from 'svelte-tex/package/MathSVG.svelte';
 	let equations = $state([]);
 	let equationText = $state(String.raw``);
+	const options = {
+		loader: {
+    		load: ['[tex]/require'] // Load the require extension
+		},
+		tex: {
+			packages: { '[+]': ['require'] }, // Add to packages
+			require: {
+				allow: {
+					allPackages: true // Optional: Allows all packages to be required
+				}
+			}
+		}
+	};
 	function addEquation(event) {
 		event.preventDefault();
 		event.target.reset();
@@ -20,13 +33,13 @@
 <main>
 	<ul>
 		{#each equations as equation}
-			<li><MathSVG tex={equation} /></li>
+			<li><MathSVG tex={equation} texOptions={options} /></li>
 		{/each}
 	</ul>
 	<form onsubmit={addEquation}>
 		<input placeholder="Put LaTeX here" bind:value={equationText} />
 		<br />
-		<p><MathSVG tex={equationText || String.raw`\text{LaTeX Preview Output}`} /></p>
+		<p><MathSVG tex={equationText || String.raw`\text{LaTeX Preview Output}`} texOptions={options} /></p>
 		<input type="submit" value="Add equation" />
 	</form>
 	<button onclick={removeEquation}>Remove equation</button>
