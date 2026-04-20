@@ -7,7 +7,10 @@
 	let equations = $state([]);
 	let equationText = $state(String.raw``);
 	const options = {
-		packages: ['base', 'require', 'color']
+		loader: {load: ['[tex]/color']},
+		text: {
+			packages: {'[+]': ['color']}
+		}
 	};
 	function addEquation(event) {
 		event.preventDefault();
