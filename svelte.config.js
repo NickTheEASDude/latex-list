@@ -2,6 +2,19 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	MathJax: {
+		loader: {
+			load: ['[tex]/require'] // Load the require extension
+		},
+		tex: {
+	    	packages: { '[+]': ['require'] }, // Add to packages
+			require: {
+	    		allow: {
+	        		allPackages: true // Optional: Allows all packages to be required
+	      		}
+   			}
+		}
+   },
 	preprocess: vitePreprocess(),
 	compilerOptions: {
 		// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
