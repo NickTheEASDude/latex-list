@@ -5,13 +5,17 @@
 <script>
 	import MathSVG from 'svelte-tex/package/MathSVG.svelte';
 	let equations = $state([]);
-	let equationText = $state(String.raw``);
+<<<<<<< HEAD
+	let equationText = $state('');
 	const options = {
 		loader: {load: ['[tex]/color']},
 		text: {
 			packages: {'[+]': ['color']}
 		}
 	};
+=======
+	let equationText = $state('');
+>>>>>>> 7a3ebee (change redundant variable initialization)
 	function addEquation(event) {
 		event.preventDefault();
 		event.target.reset();
