@@ -22,6 +22,11 @@
 	function removeEquation() {
 		equations.pop();
 	}
+	function checkKey(event) {
+      if (event.key === 'Enter' && event.shiftKey) {
+        event.preventDefault();
+      }
+    }
 </script>
 <main>
 	<ul>
@@ -33,7 +38,7 @@
 		<input placeholder="Put LaTeX here" bind:value={equationText} />
 		<br />
 		<p><MathSVG tex={equationText || String.raw`\text{LaTeX Preview Output}`} texOptions={options} /></p>
-		<input type="submit" value="Add equation" />
+		<input type="submit" onkeydown={checkKey} value="Add equation" />
 	</form>
 	<button onclick={removeEquation}>Remove equation</button>
 </main>
