@@ -32,7 +32,6 @@
 	<form onsubmit={addEquation}>
 		<textarea onkeydown={checkKey} bind:value={equationText} placeholder="Put LaTeX here"></textarea>
 		<p><TexSVG latex={equationText} display={true} renderPreview={true} /></p>
-		<br />
 		<input type="submit" value="Add equation" />
 	</form>
 	<button onclick={removeEquation}>Remove equation</button>
