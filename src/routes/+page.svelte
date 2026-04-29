@@ -3,19 +3,9 @@
 </svelte:head>
 
 <script>
-	import MathSVG from 'svelte-tex/package/MathSVG.svelte';
+	import TexSVG from '$lib/components/TexSVG.svelte';
 	let equations = $state([]);
-<<<<<<< HEAD
 	let equationText = $state('');
-	const options = {
-		loader: {load: ['[tex]/color']},
-		text: {
-			packages: {'[+]': ['color']}
-		}
-	};
-=======
-	let equationText = $state('');
->>>>>>> 7a3ebee (change redundant variable initialization)
 	function addEquation(event) {
 		event.preventDefault();
 		event.target.reset();
@@ -36,13 +26,13 @@
 <main>
 	<ul>
 		{#each equations as equation}
-			<li><MathSVG tex={equation} texOptions={options} /></li>
+			<li><TexSVG latex={equation} display={true} /></li>
 		{/each}
 	</ul>
 	<form onsubmit={addEquation}>
 		<textarea onkeydown={checkKey} bind:value={equationText} placeholder="Put LaTeX here"></textarea>
+		<p><TexSVG latex={equationText} display={true} renderPreview={true} /></p>
 		<br />
-		<p><MathSVG tex={equationText || String.raw`\text{LaTeX Preview Output}`} texOptions={options} /></p>
 		<input type="submit" value="Add equation" />
 	</form>
 	<button onclick={removeEquation}>Remove equation</button>
@@ -57,12 +47,5 @@
 	}
 	li {
 		list-style-type: none;
-	}
-	:global(svg text) {
-		font-family: Helvetica, Arial, sans-serif;
-		fill: red;
-	}
-	:global(svg g[data-mml-node="merror"] rect) {
-		fill: white;
 	}
 </style>
