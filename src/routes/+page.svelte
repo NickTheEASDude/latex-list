@@ -23,10 +23,10 @@
 		equations.pop();
 	}
 	function checkKey(event) {
-      if (event.key === 'Enter' && event.shiftKey) {
-        event.preventDefault();
-      }
-    }
+		if (event.key === 'Enter' && event.shiftKey) {
+			event.preventDefault();
+		}
+	}
 </script>
 <main>
 	<ul>
@@ -35,10 +35,10 @@
 		{/each}
 	</ul>
 	<form onsubmit={addEquation}>
-		<input placeholder="Put LaTeX here" bind:value={equationText} />
+		<textarea onkeydown={checkKey} bind:value={equationText}>Put LaTeX here</textarea>
 		<br />
 		<p><MathSVG tex={equationText || String.raw`\text{LaTeX Preview Output}`} texOptions={options} /></p>
-		<input type="submit" onkeydown={checkKey} value="Add equation" />
+		<input type="submit" value="Add equation" />
 	</form>
 	<button onclick={removeEquation}>Remove equation</button>
 </main>
