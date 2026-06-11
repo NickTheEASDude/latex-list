@@ -12,7 +12,7 @@
 	});
 	$effect(async () => {
 		if (!latex && renderPreview) {
-			latex = String.raw`\text{LaTeX Preview Output}`;
+			latex = String.raw`\text{\LaTeX Preview Output}`;
 			error = '';
 		}
 		if (!ready || !latex) {
